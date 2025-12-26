@@ -345,6 +345,9 @@ func (c *UdpConn) readFrom2022Aes(b []byte) (int, netip.AddrPort, error) {
 		return 0, netip.AddrPort{}, protocol.ErrFailAuth
 	}
 	padLen := int(binary.BigEndian.Uint16(bodyPlain[offset:]))
+	if padLen > 900 { // align with sing/xray padding cap
+		return 0, netip.AddrPort{}, fmt.Errorf("invalid padding length")
+	}
 	offset += 2
 	if offset+padLen > len(bodyPlain) {
 		return 0, netip.AddrPort{}, fmt.Errorf("invalid padding length")
@@ -411,6 +414,9 @@ func (c *UdpConn) readFrom2022Chacha(b []byte) (int, netip.AddrPort, error) {
 		return 0, netip.AddrPort{}, protocol.ErrFailAuth
 	}
 	padLen := int(binary.BigEndian.Uint16(bodyPlain[offset:]))
+	if padLen > 900 { // align with sing/xray padding cap
+		return 0, netip.AddrPort{}, fmt.Errorf("invalid padding length")
+	}
 	offset += 2
 	if offset+padLen > len(bodyPlain) {
 		return 0, netip.AddrPort{}, fmt.Errorf("invalid padding length")

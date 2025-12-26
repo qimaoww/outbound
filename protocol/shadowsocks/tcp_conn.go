@@ -417,14 +417,8 @@ func (c *TCPConn) write2022(b []byte) (int, error) {
 		}
 		if c.metadata.IsClient {
 			// Request: fixed header + variable header
-			paddingLen := 0
-			initialPayloadLen := 0
-			if len(b) > 0 {
-				initialPayloadLen = 0
-			}
-			if initialPayloadLen == 0 {
-				paddingLen = int(fastrand.Uint32()%32) + 1
-			}
+			initialPayloadLen := common.Min(len(b), c.chunkLimit)
+			paddingLen := int(fastrand.Uint32()%901) // align with sing/xray random padding range
 			varHeader, err := c.build2022VarHeader(b[:initialPayloadLen], paddingLen)
 			if err != nil {
 				pool.Put(salt)
