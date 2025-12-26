@@ -216,6 +216,10 @@ func (c *TCPConn) initRead2022() error {
 	if _, err := io.ReadFull(c.Conn, salt); err != nil {
 		return err
 	}
+	if len(c.requestSalt) != len(salt) {
+		c.requestSalt = make([]byte, len(salt))
+	}
+	copy(c.requestSalt, salt)
 	subKey := pool.Get(c.cipherConf.KeyLen)
 	if err := deriveSessionSubKey(subKey, c.metadata.Cipher, c.masterKey, salt, ciphers.ShadowsocksReusedInfo); err != nil {
 		pool.Put(subKey)
@@ -411,29 +415,61 @@ func (c *TCPConn) write2022(b []byte) (int, error) {
 		if c.bloom != nil {
 			c.bloom.ExistOrAdd(salt)
 		}
-		paddingLen := 0
-		initialPayloadLen := 0
-		if len(b) > 0 {
-			initialPayloadLen = 0
-		}
-		if initialPayloadLen == 0 {
-			paddingLen = int(fastrand.Uint32()%32) + 1
-		}
-		varHeader, err := c.build2022VarHeader(b[:initialPayloadLen], paddingLen)
-		if err != nil {
+		if c.metadata.IsClient {
+			// Request: fixed header + variable header
+			paddingLen := 0
+			initialPayloadLen := 0
+			if len(b) > 0 {
+				initialPayloadLen = 0
+			}
+			if initialPayloadLen == 0 {
+				paddingLen = int(fastrand.Uint32()%32) + 1
+			}
+			varHeader, err := c.build2022VarHeader(b[:initialPayloadLen], paddingLen)
+			if err != nil {
+				pool.Put(salt)
+				return 0, err
+			}
+			if len(varHeader) > math.MaxUint16 {
+				pool.Put(salt)
+				return 0, fmt.Errorf("shadowsocks 2022 header too large: %d", len(varHeader))
+			}
+			fixedHeader := make([]byte, 1+8+2)
+			fixedHeader[0] = 0
+			binary.BigEndian.PutUint64(fixedHeader[1:], uint64(time.Now().Unix()))
+			binary.BigEndian.PutUint16(fixedHeader[9:], uint16(len(varHeader)))
+			remaining := b[initialPayloadLen:]
+			totalLen := c.cipherConf.SaltLen + len(fixedHeader) + c.cipherConf.TagLen + len(varHeader) + c.cipherConf.TagLen + c.encryptedPayloadLen(len(remaining))
+			buf := pool.Get(totalLen)
+			offset := 0
+			copy(buf[offset:], salt)
 			pool.Put(salt)
-			return 0, err
+			offset += c.cipherConf.SaltLen
+			sealed := c.cipherWrite.Seal(buf[offset:offset], c.nonceWrite, fixedHeader, nil)
+			offset += len(sealed)
+			common.BytesIncLittleEndian(c.nonceWrite)
+			sealed = c.cipherWrite.Seal(buf[offset:offset], c.nonceWrite, varHeader, nil)
+			offset += len(sealed)
+			common.BytesIncLittleEndian(c.nonceWrite)
+			if len(remaining) > 0 {
+				sealed = c.seal(buf[offset:], remaining)
+				offset += len(sealed)
+			}
+			_, err = c.Conn.Write(buf[:offset])
+			pool.Put(buf)
+			if err != nil {
+				return 0, err
+			}
+			return len(b), nil
 		}
-		if len(varHeader) > math.MaxUint16 {
-			pool.Put(salt)
-			return 0, fmt.Errorf("shadowsocks 2022 header too large: %d", len(varHeader))
-		}
-		fixedHeader := make([]byte, 1+8+2)
-		fixedHeader[0] = 0
+		// Response: fixed header includes request salt, no variable header; length is first payload chunk length
+		firstChunkLen := common.Min(len(b), c.chunkLimit)
+		fixedHeader := make([]byte, 1+8+len(c.requestSalt)+2)
+		fixedHeader[0] = 1
 		binary.BigEndian.PutUint64(fixedHeader[1:], uint64(time.Now().Unix()))
-		binary.BigEndian.PutUint16(fixedHeader[9:], uint16(len(varHeader)))
-		remaining := b[initialPayloadLen:]
-		totalLen := c.cipherConf.SaltLen + len(fixedHeader) + c.cipherConf.TagLen + len(varHeader) + c.cipherConf.TagLen + c.encryptedPayloadLen(len(remaining))
+		copy(fixedHeader[9:], c.requestSalt)
+		binary.BigEndian.PutUint16(fixedHeader[9+len(c.requestSalt):], uint16(firstChunkLen))
+		totalLen := c.cipherConf.SaltLen + len(fixedHeader) + c.cipherConf.TagLen + c.encryptedPayloadLen(len(b))
 		buf := pool.Get(totalLen)
 		offset := 0
 		copy(buf[offset:], salt)
@@ -442,11 +478,8 @@ func (c *TCPConn) write2022(b []byte) (int, error) {
 		sealed := c.cipherWrite.Seal(buf[offset:offset], c.nonceWrite, fixedHeader, nil)
 		offset += len(sealed)
 		common.BytesIncLittleEndian(c.nonceWrite)
-		sealed = c.cipherWrite.Seal(buf[offset:offset], c.nonceWrite, varHeader, nil)
-		offset += len(sealed)
-		common.BytesIncLittleEndian(c.nonceWrite)
-		if len(remaining) > 0 {
-			sealed = c.seal(buf[offset:], remaining)
+		if len(b) > 0 {
+			sealed = c.seal(buf[offset:], b)
 			offset += len(sealed)
 		}
 		_, err = c.Conn.Write(buf[:offset])
