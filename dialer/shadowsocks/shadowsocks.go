@@ -8,15 +8,15 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/daeuniverse/outbound/common"
-	"github.com/daeuniverse/outbound/dialer"
-	"github.com/daeuniverse/outbound/netproxy"
-	"github.com/daeuniverse/outbound/protocol"
-	"github.com/daeuniverse/outbound/protocol/shadowsocks"
-	"github.com/daeuniverse/outbound/transport/mux"
-	"github.com/daeuniverse/outbound/transport/simpleobfs"
-	"github.com/daeuniverse/outbound/transport/tls"
-	"github.com/daeuniverse/outbound/transport/ws"
+	"github.com/qimaoww/outbound/common"
+	"github.com/qimaoww/outbound/dialer"
+	"github.com/qimaoww/outbound/netproxy"
+	"github.com/qimaoww/outbound/protocol"
+	"github.com/qimaoww/outbound/protocol/shadowsocks"
+	"github.com/qimaoww/outbound/transport/mux"
+	"github.com/qimaoww/outbound/transport/simpleobfs"
+	"github.com/qimaoww/outbound/transport/tls"
+	"github.com/qimaoww/outbound/transport/ws"
 )
 
 func init() {

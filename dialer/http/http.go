@@ -6,10 +6,10 @@ import (
 	"net/url"
 	"strconv"
 
-	"github.com/daeuniverse/outbound/common"
-	"github.com/daeuniverse/outbound/dialer"
-	"github.com/daeuniverse/outbound/netproxy"
-	"github.com/daeuniverse/outbound/protocol/http"
+	"github.com/qimaoww/outbound/common"
+	"github.com/qimaoww/outbound/dialer"
+	"github.com/qimaoww/outbound/netproxy"
+	"github.com/qimaoww/outbound/protocol/http"
 )
 
 func init() {

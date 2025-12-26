@@ -1,8 +1,8 @@
 package congestion
 
 import (
-	"github.com/daeuniverse/outbound/protocol/tuic/congestion/bbr"
-	"github.com/daeuniverse/outbound/protocol/tuic/congestion/brutal"
+	"github.com/qimaoww/outbound/protocol/tuic/congestion/bbr"
+	"github.com/qimaoww/outbound/protocol/tuic/congestion/brutal"
 	"github.com/daeuniverse/quic-go"
 )
 

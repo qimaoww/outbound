@@ -9,8 +9,8 @@ import (
 	"reflect"
 	"unsafe"
 
-	"github.com/daeuniverse/outbound/netproxy"
-	"github.com/daeuniverse/outbound/transport/tls"
+	"github.com/qimaoww/outbound/netproxy"
+	"github.com/qimaoww/outbound/transport/tls"
 	utls "github.com/refraction-networking/utls"
 )
 

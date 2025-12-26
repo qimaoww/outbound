@@ -7,14 +7,14 @@ import (
 	"sync"
 	"time"
 
-	rand "github.com/daeuniverse/outbound/pkg/fastrand"
+	rand "github.com/qimaoww/outbound/pkg/fastrand"
 
 	"github.com/daeuniverse/quic-go"
 
-	"github.com/daeuniverse/outbound/netproxy"
-	coreErrs "github.com/daeuniverse/outbound/protocol/hysteria2/errors"
-	"github.com/daeuniverse/outbound/protocol/hysteria2/internal/frag"
-	"github.com/daeuniverse/outbound/protocol/hysteria2/internal/protocol"
+	"github.com/qimaoww/outbound/netproxy"
+	coreErrs "github.com/qimaoww/outbound/protocol/hysteria2/errors"
+	"github.com/qimaoww/outbound/protocol/hysteria2/internal/frag"
+	"github.com/qimaoww/outbound/protocol/hysteria2/internal/protocol"
 )
 
 const (

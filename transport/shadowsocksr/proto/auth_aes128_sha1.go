@@ -1,8 +1,8 @@
 package proto
 
 import (
-	"github.com/daeuniverse/outbound/common"
-	"github.com/daeuniverse/outbound/pool/bytes"
+	"github.com/qimaoww/outbound/common"
+	"github.com/qimaoww/outbound/pool/bytes"
 )
 
 func init() {

@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"net/netip"
 
-	"github.com/daeuniverse/outbound/ciphers"
-	"github.com/daeuniverse/outbound/netproxy"
-	"github.com/daeuniverse/outbound/pool"
-	"github.com/daeuniverse/outbound/protocol/infra/socks"
+	"github.com/qimaoww/outbound/ciphers"
+	"github.com/qimaoww/outbound/netproxy"
+	"github.com/qimaoww/outbound/pool"
+	"github.com/qimaoww/outbound/protocol/infra/socks"
 )
 
 // UdpConn the struct that override the netproxy.Conn methods

@@ -6,7 +6,7 @@ import (
 	"net"
 	"net/netip"
 
-	"github.com/daeuniverse/outbound/protocol"
+	"github.com/qimaoww/outbound/protocol"
 )
 
 const SeqPacketMagicAddress = "sp.packet-addr.v2fly.arpa"

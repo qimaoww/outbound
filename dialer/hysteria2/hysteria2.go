@@ -9,13 +9,13 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/daeuniverse/outbound/common/bandwidth"
-	"github.com/daeuniverse/outbound/common/url"
-	"github.com/daeuniverse/outbound/dialer"
-	"github.com/daeuniverse/outbound/netproxy"
-	"github.com/daeuniverse/outbound/protocol"
-	"github.com/daeuniverse/outbound/protocol/hysteria2"
-	"github.com/daeuniverse/outbound/protocol/hysteria2/client"
+	"github.com/qimaoww/outbound/common/bandwidth"
+	"github.com/qimaoww/outbound/common/url"
+	"github.com/qimaoww/outbound/dialer"
+	"github.com/qimaoww/outbound/netproxy"
+	"github.com/qimaoww/outbound/protocol"
+	"github.com/qimaoww/outbound/protocol/hysteria2"
+	"github.com/qimaoww/outbound/protocol/hysteria2/client"
 )
 
 func init() {

@@ -4,10 +4,9 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/daeuniverse/outbound/ciphers"
-	"github.com/daeuniverse/outbound/common"
-	"github.com/daeuniverse/outbound/netproxy"
-	"github.com/daeuniverse/outbound/protocol"
+	"github.com/qimaoww/outbound/ciphers"
+	"github.com/qimaoww/outbound/netproxy"
+	"github.com/qimaoww/outbound/protocol"
 )
 
 func init() {
@@ -22,7 +21,16 @@ type Dialer struct {
 }
 
 func NewDialer(nextDialer netproxy.Dialer, header protocol.Header) (netproxy.Dialer, error) {
-	//log.Trace("shadowsocks.NewDialer: metadata: %v, password: %v", metadata, password)
+	conf, ok := ciphers.AeadCiphersConf[header.Cipher]
+	if !ok || conf == nil || conf.NewCipher == nil {
+		return nil, fmt.Errorf("unsupported shadowsocks cipher: %s", header.Cipher)
+	}
+	mKey, err := deriveMasterKey(header.Cipher, header.Password, conf.KeyLen)
+	if err != nil {
+		return nil, fmt.Errorf("derive master key: %w", err)
+	}
+	key := make([]byte, len(mKey))
+	copy(key, mKey)
 	return &Dialer{
 		proxyAddress: header.ProxyAddress,
 		nextDialer:   nextDialer,
@@ -30,7 +38,7 @@ func NewDialer(nextDialer netproxy.Dialer, header protocol.Header) (netproxy.Dia
 			Cipher:   header.Cipher,
 			IsClient: header.IsClient,
 		},
-		key: common.EVPBytesToKey(header.Password, ciphers.AeadCiphersConf[header.Cipher].KeyLen),
+		key: key,
 	}, nil
 }
 

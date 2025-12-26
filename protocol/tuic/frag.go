@@ -3,7 +3,7 @@ package tuic
 import (
 	"net/netip"
 
-	"github.com/daeuniverse/outbound/pool/bytes"
+	"github.com/qimaoww/outbound/pool/bytes"
 	"github.com/daeuniverse/quic-go"
 )
 

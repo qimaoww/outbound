@@ -4,10 +4,10 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/daeuniverse/outbound/common"
-	"github.com/daeuniverse/outbound/netproxy"
-	"github.com/daeuniverse/outbound/protocol"
-	"github.com/daeuniverse/outbound/transport/grpc"
+	"github.com/qimaoww/outbound/common"
+	"github.com/qimaoww/outbound/netproxy"
+	"github.com/qimaoww/outbound/protocol"
+	"github.com/qimaoww/outbound/transport/grpc"
 	"github.com/google/uuid"
 )
 

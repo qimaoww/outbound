@@ -4,11 +4,11 @@ import (
 	"encoding/binary"
 	"time"
 
-	"github.com/daeuniverse/outbound/common"
-	rand "github.com/daeuniverse/outbound/pkg/fastrand"
-	"github.com/daeuniverse/outbound/pool"
-	"github.com/daeuniverse/outbound/pool/bytes"
-	"github.com/daeuniverse/outbound/transport/shadowsocksr/internal/crypto"
+	"github.com/qimaoww/outbound/common"
+	rand "github.com/qimaoww/outbound/pkg/fastrand"
+	"github.com/qimaoww/outbound/pool"
+	"github.com/qimaoww/outbound/pool/bytes"
+	"github.com/qimaoww/outbound/transport/shadowsocksr/internal/crypto"
 )
 
 func init() {

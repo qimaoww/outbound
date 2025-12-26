@@ -17,7 +17,7 @@ import (
 	"strings"
 	"unicode/utf8"
 
-	"github.com/daeuniverse/outbound/pool"
+	"github.com/qimaoww/outbound/pool"
 )
 
 const (

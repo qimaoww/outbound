@@ -6,7 +6,7 @@ import (
 	"crypto/sha1"
 	"io"
 
-	"github.com/daeuniverse/outbound/pool"
+	"github.com/qimaoww/outbound/pool"
 	"golang.org/x/crypto/chacha20poly1305"
 	"golang.org/x/crypto/hkdf"
 )
@@ -28,10 +28,13 @@ const (
 
 var (
 	AeadCiphersConf = map[string]*CipherConf{
-		"chacha20-ietf-poly1305": {KeyLen: 32, SaltLen: 32, NonceLen: 12, TagLen: 16, NewCipher: chacha20poly1305.New},
-		"chacha20-poly1305":      {KeyLen: 32, SaltLen: 32, NonceLen: 12, TagLen: 16, NewCipher: chacha20poly1305.New},
-		"aes-256-gcm":            {KeyLen: 32, SaltLen: 32, NonceLen: 12, TagLen: 16, NewCipher: NewGcm},
-		"aes-128-gcm":            {KeyLen: 16, SaltLen: 16, NonceLen: 12, TagLen: 16, NewCipher: NewGcm},
+		"chacha20-ietf-poly1305":        {KeyLen: 32, SaltLen: 32, NonceLen: 12, TagLen: 16, NewCipher: chacha20poly1305.New},
+		"chacha20-poly1305":             {KeyLen: 32, SaltLen: 32, NonceLen: 12, TagLen: 16, NewCipher: chacha20poly1305.New},
+		"aes-256-gcm":                   {KeyLen: 32, SaltLen: 32, NonceLen: 12, TagLen: 16, NewCipher: NewGcm},
+		"aes-128-gcm":                   {KeyLen: 16, SaltLen: 16, NonceLen: 12, TagLen: 16, NewCipher: NewGcm},
+		"2022-blake3-aes-128-gcm":       {KeyLen: 16, SaltLen: 16, NonceLen: 12, TagLen: 16, NewCipher: NewGcm},
+		"2022-blake3-aes-256-gcm":       {KeyLen: 32, SaltLen: 32, NonceLen: 12, TagLen: 16, NewCipher: NewGcm},
+		"2022-blake3-chacha20-poly1305": {KeyLen: 32, SaltLen: 32, NonceLen: 12, TagLen: 16, NewCipher: chacha20poly1305.New},
 	}
 	ZeroNonce             [MaxNonceSize]byte
 	ShadowsocksReusedInfo = []byte("ss-subkey")

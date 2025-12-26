@@ -12,8 +12,8 @@ import (
 	"sync"
 	"time"
 
-	"github.com/daeuniverse/outbound/netproxy"
-	"github.com/daeuniverse/outbound/pool"
+	"github.com/qimaoww/outbound/netproxy"
+	"github.com/qimaoww/outbound/pool"
 )
 
 var (

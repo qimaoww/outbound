@@ -11,9 +11,9 @@ import (
 	"reflect"
 	"sync"
 
-	"github.com/daeuniverse/outbound/common/iout"
-	"github.com/daeuniverse/outbound/netproxy"
-	"github.com/daeuniverse/outbound/pool"
+	"github.com/qimaoww/outbound/common/iout"
+	"github.com/qimaoww/outbound/netproxy"
+	"github.com/qimaoww/outbound/pool"
 
 	"github.com/google/uuid"
 	utls "github.com/refraction-networking/utls"

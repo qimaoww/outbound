@@ -7,15 +7,17 @@ import (
 	"net/http"
 	"testing"
 
-	"github.com/daeuniverse/outbound/netproxy"
-	"github.com/daeuniverse/outbound/protocol"
-	"github.com/daeuniverse/outbound/protocol/direct"
-	"github.com/daeuniverse/outbound/protocol/shadowsocks_stream"
-	"github.com/daeuniverse/outbound/transport/shadowsocksr/obfs"
-	"github.com/daeuniverse/outbound/transport/shadowsocksr/proto"
+	"github.com/qimaoww/outbound/internal/testutil"
+	"github.com/qimaoww/outbound/netproxy"
+	"github.com/qimaoww/outbound/protocol"
+	"github.com/qimaoww/outbound/protocol/direct"
+	"github.com/qimaoww/outbound/protocol/shadowsocks_stream"
+	"github.com/qimaoww/outbound/transport/shadowsocksr/obfs"
+	"github.com/qimaoww/outbound/transport/shadowsocksr/proto"
 )
 
 func BenchmarkSSR(b *testing.B) {
+	testutil.RequireE2E(b)
 	b.N = 5000
 	for i := 0; i < b.N; i++ {
 		d := direct.SymmetricDirect

@@ -1,5 +1,5 @@
 syntax = "proto3";
-option go_package = "github.com/daeuniverse/outbound/pkg/gun_proto";
+option go_package = "github.com/qimaoww/outbound/pkg/gun_proto";
 
 message Hunk {
   bytes data = 1;

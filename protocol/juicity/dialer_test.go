@@ -10,9 +10,10 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/daeuniverse/outbound/netproxy"
-	"github.com/daeuniverse/outbound/protocol"
-	"github.com/daeuniverse/outbound/protocol/direct"
+	"github.com/qimaoww/outbound/internal/testutil"
+	"github.com/qimaoww/outbound/netproxy"
+	"github.com/qimaoww/outbound/protocol"
+	"github.com/qimaoww/outbound/protocol/direct"
 )
 
 type Params struct {
@@ -20,6 +21,7 @@ type Params struct {
 }
 
 func TestTcp(t *testing.T) {
+	testutil.RequireE2E(t)
 	d, err := NewDialer(direct.SymmetricDirect, protocol.Header{
 		ProxyAddress: "example.com:50001",
 		SNI:          "",
@@ -59,6 +61,7 @@ func TestTcp(t *testing.T) {
 }
 
 func TestUdp(t *testing.T) {
+	testutil.RequireE2E(t)
 	d, err := NewDialer(direct.SymmetricDirect, protocol.Header{
 		ProxyAddress: "example.com:50001",
 		SNI:          "",

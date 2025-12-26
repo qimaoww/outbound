@@ -4,7 +4,7 @@ import (
 	"errors"
 	"io"
 
-	"github.com/daeuniverse/outbound/pool"
+	"github.com/qimaoww/outbound/pool"
 )
 
 // errInvalidWrite means that a write returned an impossible count.

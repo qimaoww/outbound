@@ -7,9 +7,9 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/daeuniverse/outbound/dialer"
-	"github.com/daeuniverse/outbound/netproxy"
-	tls2 "github.com/daeuniverse/outbound/transport/tls"
+	"github.com/qimaoww/outbound/dialer"
+	"github.com/qimaoww/outbound/netproxy"
+	tls2 "github.com/qimaoww/outbound/transport/tls"
 )
 
 // HttpProxy is an HTTP/HTTPS proxy.

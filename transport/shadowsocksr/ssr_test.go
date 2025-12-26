@@ -9,15 +9,17 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/daeuniverse/outbound/netproxy"
-	"github.com/daeuniverse/outbound/protocol"
-	"github.com/daeuniverse/outbound/protocol/direct"
-	"github.com/daeuniverse/outbound/protocol/shadowsocks_stream"
-	"github.com/daeuniverse/outbound/transport/shadowsocksr/obfs"
-	"github.com/daeuniverse/outbound/transport/shadowsocksr/proto"
+	"github.com/qimaoww/outbound/internal/testutil"
+	"github.com/qimaoww/outbound/netproxy"
+	"github.com/qimaoww/outbound/protocol"
+	"github.com/qimaoww/outbound/protocol/direct"
+	"github.com/qimaoww/outbound/protocol/shadowsocks_stream"
+	"github.com/qimaoww/outbound/transport/shadowsocksr/obfs"
+	"github.com/qimaoww/outbound/transport/shadowsocksr/proto"
 )
 
 func TestTcp(t *testing.T) {
+	testutil.RequireE2E(t)
 	// https://github.com/winterssy/SSR-Docker
 	// Remember to set protocol_param to 3000# (max_client)
 	d := direct.SymmetricDirect
@@ -72,6 +74,7 @@ func TestTcp(t *testing.T) {
 }
 
 func TestUdp(t *testing.T) {
+	testutil.RequireE2E(t)
 	// https://github.com/winterssy/SSR-Docker
 	// Remember to set protocol_param to 3000# (max_client)
 	d := direct.SymmetricDirect

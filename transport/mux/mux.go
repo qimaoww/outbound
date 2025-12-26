@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/daeuniverse/outbound/netproxy"
+	"github.com/qimaoww/outbound/netproxy"
 )
 
 // Mux is a base Mux struct

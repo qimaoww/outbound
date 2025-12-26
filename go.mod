@@ -1,4 +1,4 @@
-module github.com/daeuniverse/outbound
+module github.com/qimaoww/outbound
 
 go 1.22.0
 
@@ -27,6 +27,7 @@ require (
 	golang.org/x/sys v0.30.0
 	google.golang.org/grpc v1.57.0
 	google.golang.org/protobuf v1.36.1
+	lukechampine.com/blake3 v1.2.1
 )
 
 require (
@@ -40,6 +41,7 @@ require (
 	github.com/go-task/slim-sprig/v3 v3.0.0 // indirect
 	github.com/google/pprof v0.0.0-20250208200701-d0013a598941 // indirect
 	github.com/klauspost/compress v1.17.4 // indirect
+	github.com/klauspost/cpuid/v2 v2.0.9 // indirect
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.2 // indirect
 	github.com/onsi/ginkgo/v2 v2.22.2 // indirect

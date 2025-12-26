@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/daeuniverse/outbound/common"
+	"github.com/qimaoww/outbound/common"
 )
 
 var (

@@ -12,10 +12,10 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/daeuniverse/outbound/netproxy"
+	"github.com/qimaoww/outbound/netproxy"
 
-	"github.com/daeuniverse/outbound/pool"
-	"github.com/daeuniverse/outbound/protocol/infra/socks"
+	"github.com/qimaoww/outbound/pool"
+	"github.com/qimaoww/outbound/protocol/infra/socks"
 )
 
 // NewSocks5Dialer returns a socks5 proxy netproxy.

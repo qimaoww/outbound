@@ -9,9 +9,9 @@ import (
 	"strconv"
 	"sync"
 
-	"github.com/daeuniverse/outbound/pool"
-	"github.com/daeuniverse/outbound/protocol"
-	"github.com/daeuniverse/outbound/protocol/trojanc"
+	"github.com/qimaoww/outbound/pool"
+	"github.com/qimaoww/outbound/protocol"
+	"github.com/qimaoww/outbound/protocol/trojanc"
 )
 
 type PacketConn struct {

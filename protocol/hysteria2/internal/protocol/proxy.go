@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/daeuniverse/outbound/protocol/hysteria2/errors"
+	"github.com/qimaoww/outbound/protocol/hysteria2/errors"
 
 	"github.com/daeuniverse/quic-go/quicvarint"
 )

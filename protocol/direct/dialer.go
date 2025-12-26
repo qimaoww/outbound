@@ -8,7 +8,7 @@ import (
 	"strings"
 	"syscall"
 
-	"github.com/daeuniverse/outbound/netproxy"
+	"github.com/qimaoww/outbound/netproxy"
 )
 
 var (

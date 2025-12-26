@@ -10,9 +10,9 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/daeuniverse/outbound/dialer"
-	"github.com/daeuniverse/outbound/netproxy"
-	transportTls "github.com/daeuniverse/outbound/transport/tls"
+	"github.com/qimaoww/outbound/dialer"
+	"github.com/qimaoww/outbound/netproxy"
+	transportTls "github.com/qimaoww/outbound/transport/tls"
 	"github.com/gorilla/websocket"
 )
 

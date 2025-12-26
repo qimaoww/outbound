@@ -6,8 +6,8 @@ import (
 	"io"
 	"net"
 
-	"github.com/daeuniverse/outbound/pool"
-	"github.com/daeuniverse/outbound/protocol"
+	"github.com/qimaoww/outbound/pool"
+	"github.com/qimaoww/outbound/protocol"
 )
 
 func ParseMetadataType(t byte) protocol.MetadataType {

@@ -6,8 +6,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/daeuniverse/outbound/common"
-	"github.com/daeuniverse/outbound/netproxy"
+	"github.com/qimaoww/outbound/common"
+	"github.com/qimaoww/outbound/netproxy"
 )
 
 func parseRange(str string) (min, max int64, err error) {

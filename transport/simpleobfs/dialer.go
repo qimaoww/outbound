@@ -1,6 +1,6 @@
 package simpleobfs
 
-import "github.com/daeuniverse/outbound/dialer"
+import "github.com/qimaoww/outbound/dialer"
 
 func init() {
 	dialer.FromLinkRegister("simpleobfs", NewSimpleObfs)

@@ -9,9 +9,9 @@ import (
 	"net/http"
 	"sync"
 
-	"github.com/daeuniverse/outbound/common"
-	"github.com/daeuniverse/outbound/pkg/fastrand"
-	"github.com/daeuniverse/outbound/pool"
+	"github.com/qimaoww/outbound/common"
+	"github.com/qimaoww/outbound/pkg/fastrand"
+	"github.com/qimaoww/outbound/pool"
 	"golang.org/x/crypto/hkdf"
 )
 

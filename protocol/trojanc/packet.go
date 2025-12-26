@@ -8,8 +8,8 @@ import (
 	"strconv"
 	"sync"
 
-	"github.com/daeuniverse/outbound/pool"
-	"github.com/daeuniverse/outbound/protocol"
+	"github.com/qimaoww/outbound/pool"
+	"github.com/qimaoww/outbound/protocol"
 )
 
 type PacketConn struct {

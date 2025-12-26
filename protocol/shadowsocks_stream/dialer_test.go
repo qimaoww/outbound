@@ -7,9 +7,10 @@ import (
 	"net/http"
 	"testing"
 
-	"github.com/daeuniverse/outbound/netproxy"
-	"github.com/daeuniverse/outbound/protocol"
-	"github.com/daeuniverse/outbound/protocol/direct"
+	"github.com/qimaoww/outbound/internal/testutil"
+	"github.com/qimaoww/outbound/netproxy"
+	"github.com/qimaoww/outbound/protocol"
+	"github.com/qimaoww/outbound/protocol/direct"
 )
 
 type Params struct {
@@ -17,6 +18,7 @@ type Params struct {
 }
 
 func TestNewSSStream(t *testing.T) {
+	testutil.RequireE2E(t)
 	// https://github.com/winterssy/SSR-Docker
 
 	params := Params{

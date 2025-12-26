@@ -8,10 +8,10 @@ import (
 	"net"
 	"net/netip"
 
-	"github.com/daeuniverse/outbound/netproxy"
+	"github.com/qimaoww/outbound/netproxy"
 
-	"github.com/daeuniverse/outbound/pool"
-	"github.com/daeuniverse/outbound/protocol/infra/socks"
+	"github.com/qimaoww/outbound/pool"
+	"github.com/qimaoww/outbound/protocol/infra/socks"
 )
 
 // PktConn .

@@ -9,9 +9,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/daeuniverse/outbound/common"
-	rand "github.com/daeuniverse/outbound/pkg/fastrand"
-	"github.com/daeuniverse/outbound/transport/shadowsocksr/proto"
+	"github.com/qimaoww/outbound/common"
+	rand "github.com/qimaoww/outbound/pkg/fastrand"
+	"github.com/qimaoww/outbound/transport/shadowsocksr/proto"
 )
 
 func init() {

@@ -4,9 +4,9 @@ import (
 	"bytes"
 	"encoding/binary"
 
-	"github.com/daeuniverse/outbound/pool"
+	"github.com/qimaoww/outbound/pool"
 
-	"github.com/daeuniverse/outbound/pkg/fastrand"
+	"github.com/qimaoww/outbound/pkg/fastrand"
 	"github.com/google/uuid"
 )
 

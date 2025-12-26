@@ -33,7 +33,7 @@ import (
 	"time"
 	"unsafe"
 
-	"github.com/daeuniverse/outbound/netproxy"
+	"github.com/qimaoww/outbound/netproxy"
 	utls "github.com/refraction-networking/utls"
 	"golang.org/x/crypto/chacha20poly1305"
 	"golang.org/x/crypto/hkdf"

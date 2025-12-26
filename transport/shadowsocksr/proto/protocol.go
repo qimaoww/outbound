@@ -3,9 +3,9 @@ package proto
 import (
 	"strings"
 
-	"github.com/daeuniverse/outbound/pool"
-	"github.com/daeuniverse/outbound/pool/bytes"
-	"github.com/daeuniverse/outbound/transport/shadowsocksr/internal/crypto"
+	"github.com/qimaoww/outbound/pool"
+	"github.com/qimaoww/outbound/pool/bytes"
+	"github.com/qimaoww/outbound/transport/shadowsocksr/internal/crypto"
 )
 
 type creator func() IProtocol

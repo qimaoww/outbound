@@ -9,13 +9,13 @@ import (
 	"sync"
 	"time"
 
-	"github.com/daeuniverse/outbound/ciphers"
-	"github.com/daeuniverse/outbound/netproxy"
-	"github.com/daeuniverse/outbound/pkg/fastrand"
-	"github.com/daeuniverse/outbound/pool"
-	"github.com/daeuniverse/outbound/protocol/trojanc"
-	"github.com/daeuniverse/outbound/protocol/tuic"
-	"github.com/daeuniverse/outbound/protocol/tuic/common"
+	"github.com/qimaoww/outbound/ciphers"
+	"github.com/qimaoww/outbound/netproxy"
+	"github.com/qimaoww/outbound/pkg/fastrand"
+	"github.com/qimaoww/outbound/pool"
+	"github.com/qimaoww/outbound/protocol/trojanc"
+	"github.com/qimaoww/outbound/protocol/tuic"
+	"github.com/qimaoww/outbound/protocol/tuic/common"
 	"github.com/daeuniverse/quic-go"
 )
 

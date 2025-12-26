@@ -5,10 +5,10 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/daeuniverse/outbound/ciphers"
-	"github.com/daeuniverse/outbound/netproxy"
-	"github.com/daeuniverse/outbound/protocol/infra/socks"
-	"github.com/daeuniverse/outbound/protocol/shadowsocks_stream"
+	"github.com/qimaoww/outbound/ciphers"
+	"github.com/qimaoww/outbound/netproxy"
+	"github.com/qimaoww/outbound/protocol/infra/socks"
+	"github.com/qimaoww/outbound/protocol/shadowsocks_stream"
 )
 
 type Dialer struct {

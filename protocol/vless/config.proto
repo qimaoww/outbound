@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 package outbound.protocol.vless;
-option go_package = "github.com/daeuniverse/outbound/protocol/vless";
+option go_package = "github.com/qimaoww/outbound/protocol/vless";
 
 message Addons {
   string Flow = 1;

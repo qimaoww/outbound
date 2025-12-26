@@ -2,7 +2,6 @@ package shadowsocks
 
 import (
 	"crypto/cipher"
-	"crypto/sha1"
 	"encoding/binary"
 	"fmt"
 	"hash"
@@ -12,13 +11,12 @@ import (
 	"sync"
 	"time"
 
-	"github.com/daeuniverse/outbound/ciphers"
-	"github.com/daeuniverse/outbound/common"
-	"github.com/daeuniverse/outbound/netproxy"
-	"github.com/daeuniverse/outbound/pool"
-	"github.com/daeuniverse/outbound/protocol"
+	"github.com/qimaoww/outbound/ciphers"
+	"github.com/qimaoww/outbound/common"
+	"github.com/qimaoww/outbound/netproxy"
+	"github.com/qimaoww/outbound/pool"
+	"github.com/qimaoww/outbound/protocol"
 	disk_bloom "github.com/mzz2017/disk-bloom"
-	"golang.org/x/crypto/hkdf"
 )
 
 const (
@@ -55,6 +53,7 @@ type TCPConn struct {
 type Key struct {
 	CipherConf *ciphers.CipherConf
 	MasterKey  []byte
+	Method     string
 }
 
 func EncryptedPayloadLen(plainTextLen int, tagLen int) int {
@@ -121,13 +120,9 @@ func (c *TCPConn) Read(b []byte) (n int, err error) {
 		//log.Warn("salt: %v", hex.EncodeToString(salt))
 		subKey := pool.Get(c.cipherConf.KeyLen)
 		defer pool.Put(subKey)
-		kdf := hkdf.New(
-			sha1.New,
-			c.masterKey,
-			salt,
-			ciphers.ShadowsocksReusedInfo,
-		)
-		_, err = io.ReadFull(kdf, subKey)
+		if err = deriveSessionSubKey(subKey, c.metadata.Cipher, c.masterKey, salt, ciphers.ShadowsocksReusedInfo); err != nil {
+			return
+		}
 		if err != nil {
 			return
 		}
@@ -218,14 +213,7 @@ func (c *TCPConn) initWriteFromPool(b []byte) (buf []byte, offset int, toWrite [
 	pool.Put(salt)
 	subKey := pool.Get(c.cipherConf.KeyLen)
 	defer pool.Put(subKey)
-	kdf := hkdf.New(
-		sha1.New,
-		c.masterKey,
-		buf[:c.cipherConf.SaltLen],
-		ciphers.ShadowsocksReusedInfo,
-	)
-	_, err = io.ReadFull(kdf, subKey)
-	if err != nil {
+	if err = deriveSessionSubKey(subKey, c.metadata.Cipher, c.masterKey, buf[:c.cipherConf.SaltLen], ciphers.ShadowsocksReusedInfo); err != nil {
 		pool.Put(buf)
 		pool.Put(toWrite)
 		return nil, 0, nil, err

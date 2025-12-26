@@ -5,8 +5,8 @@ import (
 	"net"
 	"time"
 
-	rand "github.com/daeuniverse/outbound/pkg/fastrand"
-	"github.com/daeuniverse/outbound/protocol/tuic/congestion/common"
+	rand "github.com/qimaoww/outbound/pkg/fastrand"
+	"github.com/qimaoww/outbound/protocol/tuic/congestion/common"
 	"github.com/daeuniverse/quic-go/congestion"
 )
 

@@ -5,7 +5,7 @@ import (
 	"net/netip"
 	"syscall"
 
-	"github.com/daeuniverse/outbound/common"
+	"github.com/qimaoww/outbound/common"
 )
 
 type directPacketConn struct {

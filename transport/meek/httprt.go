@@ -11,7 +11,7 @@ import (
 	"net/http"
 	"sync"
 
-	"github.com/daeuniverse/outbound/netproxy"
+	"github.com/qimaoww/outbound/netproxy"
 )
 
 var (

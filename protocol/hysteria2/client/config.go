@@ -6,8 +6,8 @@ import (
 	"net"
 	"time"
 
-	"github.com/daeuniverse/outbound/protocol/hysteria2/errors"
-	"github.com/daeuniverse/outbound/protocol/hysteria2/internal/pmtud"
+	"github.com/qimaoww/outbound/protocol/hysteria2/errors"
+	"github.com/qimaoww/outbound/protocol/hysteria2/internal/pmtud"
 )
 
 const (

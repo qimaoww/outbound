@@ -8,11 +8,11 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/daeuniverse/outbound/netproxy"
-	"github.com/daeuniverse/outbound/protocol"
-	"github.com/daeuniverse/outbound/protocol/shadowsocks"
-	"github.com/daeuniverse/outbound/protocol/trojanc"
-	"github.com/daeuniverse/outbound/protocol/tuic/common"
+	"github.com/qimaoww/outbound/netproxy"
+	"github.com/qimaoww/outbound/protocol"
+	"github.com/qimaoww/outbound/protocol/shadowsocks"
+	"github.com/qimaoww/outbound/protocol/trojanc"
+	"github.com/qimaoww/outbound/protocol/tuic/common"
 	"github.com/daeuniverse/quic-go"
 	"github.com/google/uuid"
 )
@@ -190,6 +190,7 @@ func underlayKey(psk []byte) (key *shadowsocks.Key, err error) {
 	return &shadowsocks.Key{
 		CipherConf: CipherConf,
 		MasterKey:  psk,
+		Method:     "chacha20-poly1305",
 	}, nil
 }
 

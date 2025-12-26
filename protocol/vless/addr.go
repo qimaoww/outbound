@@ -6,9 +6,9 @@ import (
 	"io"
 	"net"
 
-	"github.com/daeuniverse/outbound/pool"
-	"github.com/daeuniverse/outbound/protocol"
-	"github.com/daeuniverse/outbound/protocol/vmess"
+	"github.com/qimaoww/outbound/pool"
+	"github.com/qimaoww/outbound/protocol"
+	"github.com/qimaoww/outbound/protocol/vmess"
 )
 
 func CompleteMetadataFromReader(m *Metadata, first4 []byte, r io.Reader) (err error) {

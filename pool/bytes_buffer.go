@@ -3,7 +3,7 @@ package pool
 import (
 	"sync"
 
-	"github.com/daeuniverse/outbound/pool/bytes"
+	"github.com/qimaoww/outbound/pool/bytes"
 )
 
 var bufferPool = sync.Pool{New: func() any { return bytes.NewBuffer(nil) }}

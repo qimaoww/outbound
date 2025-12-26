@@ -8,7 +8,7 @@ package iout
 import (
 	"io"
 
-	"github.com/daeuniverse/outbound/pool"
+	"github.com/qimaoww/outbound/pool"
 )
 
 func MultiWrite(dst io.Writer, bs ...[]byte) (int64, error) {

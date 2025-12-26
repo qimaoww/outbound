@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/daeuniverse/outbound/netproxy"
+	"github.com/qimaoww/outbound/netproxy"
 )
 
 type Creator func(nextDialer netproxy.Dialer, header Header) (netproxy.Dialer, error)

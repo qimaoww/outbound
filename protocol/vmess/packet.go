@@ -5,7 +5,7 @@ import (
 	"net"
 	"net/netip"
 
-	"github.com/daeuniverse/outbound/pool"
+	"github.com/qimaoww/outbound/pool"
 )
 
 func (c *Conn) ReadFrom(p []byte) (n int, addr netip.AddrPort, err error) {

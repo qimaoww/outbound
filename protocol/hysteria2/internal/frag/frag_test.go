@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/daeuniverse/outbound/protocol/hysteria2/internal/protocol"
+	"github.com/qimaoww/outbound/protocol/hysteria2/internal/protocol"
 )
 
 func TestFragUDPMessage(t *testing.T) {

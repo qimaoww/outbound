@@ -6,9 +6,9 @@ import (
 	"io"
 	"sync"
 
-	"github.com/daeuniverse/outbound/netproxy"
-	"github.com/daeuniverse/outbound/pool"
-	"github.com/daeuniverse/outbound/protocol/shadowsocks_stream"
+	"github.com/qimaoww/outbound/netproxy"
+	"github.com/qimaoww/outbound/pool"
+	"github.com/qimaoww/outbound/protocol/shadowsocks_stream"
 )
 
 type Conn struct {

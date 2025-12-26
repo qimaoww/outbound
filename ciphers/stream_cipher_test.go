@@ -5,8 +5,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/daeuniverse/outbound/common"
-	rand "github.com/daeuniverse/outbound/pkg/fastrand"
+	"github.com/qimaoww/outbound/common"
+	rand "github.com/qimaoww/outbound/pkg/fastrand"
 )
 
 const text = "Don't tell me the moon is shining; show me the glint of light on broken glass."

@@ -5,7 +5,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/daeuniverse/outbound/netproxy"
+	"github.com/qimaoww/outbound/netproxy"
 	"github.com/daeuniverse/quic-go"
 )
 

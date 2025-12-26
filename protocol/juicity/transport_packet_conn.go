@@ -7,10 +7,10 @@ import (
 	"sync"
 	"time"
 
-	"github.com/daeuniverse/outbound/ciphers"
-	"github.com/daeuniverse/outbound/pkg/fastrand"
-	"github.com/daeuniverse/outbound/pool"
-	"github.com/daeuniverse/outbound/protocol/shadowsocks"
+	"github.com/qimaoww/outbound/ciphers"
+	"github.com/qimaoww/outbound/pkg/fastrand"
+	"github.com/qimaoww/outbound/pool"
+	"github.com/qimaoww/outbound/protocol/shadowsocks"
 	"github.com/daeuniverse/quic-go"
 )
 

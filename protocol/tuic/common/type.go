@@ -5,8 +5,8 @@ import (
 	"errors"
 	"net"
 
-	"github.com/daeuniverse/outbound/netproxy"
-	"github.com/daeuniverse/outbound/protocol"
+	"github.com/qimaoww/outbound/netproxy"
+	"github.com/qimaoww/outbound/protocol"
 	"github.com/daeuniverse/quic-go"
 )
 

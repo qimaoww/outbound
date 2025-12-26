@@ -10,7 +10,7 @@ import (
 	"fmt"
 	"net"
 
-	"github.com/daeuniverse/outbound/netproxy"
+	"github.com/qimaoww/outbound/netproxy"
 )
 
 type blockDialer struct {

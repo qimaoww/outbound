@@ -1,13 +1,10 @@
 package shadowsocks
 
 import (
-	"crypto/sha1"
 	"fmt"
-	"io"
 
-	"github.com/daeuniverse/outbound/ciphers"
-	"github.com/daeuniverse/outbound/pool"
-	"golang.org/x/crypto/hkdf"
+	"github.com/qimaoww/outbound/ciphers"
+	"github.com/qimaoww/outbound/pool"
 )
 
 // EncryptUDPFromPool returns shadowBytes from pool.
@@ -22,14 +19,7 @@ func EncryptUDPFromPool(key *Key, b []byte, salt []byte, reusedInfo []byte) (sha
 	copy(buf, salt)
 	subKey := pool.Get(key.CipherConf.KeyLen)
 	defer pool.Put(subKey)
-	kdf := hkdf.New(
-		sha1.New,
-		key.MasterKey,
-		buf[:key.CipherConf.SaltLen],
-		reusedInfo,
-	)
-	_, err = io.ReadFull(kdf, subKey)
-	if err != nil {
+	if err = deriveSessionSubKey(subKey, key.Method, key.MasterKey, buf[:key.CipherConf.SaltLen], reusedInfo); err != nil {
 		return nil, err
 	}
 	ciph, err := key.CipherConf.NewCipher(subKey)
@@ -58,14 +48,7 @@ func DecryptUDP(writeTo []byte, key *Key, shadowBytes []byte, reusedInfo []byte)
 	}
 	subKey := pool.Get(key.CipherConf.KeyLen)
 	defer pool.Put(subKey)
-	kdf := hkdf.New(
-		sha1.New,
-		key.MasterKey,
-		shadowBytes[:key.CipherConf.SaltLen],
-		reusedInfo,
-	)
-	_, err = io.ReadFull(kdf, subKey)
-	if err != nil {
+	if err = deriveSessionSubKey(subKey, key.Method, key.MasterKey, shadowBytes[:key.CipherConf.SaltLen], reusedInfo); err != nil {
 		return
 	}
 	ciph, err := key.CipherConf.NewCipher(subKey)

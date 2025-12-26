@@ -1,8 +1,8 @@
 package obfs
 
 import (
-	rand "github.com/daeuniverse/outbound/pkg/fastrand"
-	"github.com/daeuniverse/outbound/transport/shadowsocksr/internal/crypto"
+	rand "github.com/qimaoww/outbound/pkg/fastrand"
+	"github.com/qimaoww/outbound/transport/shadowsocksr/internal/crypto"
 )
 
 type randomHead struct {

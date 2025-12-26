@@ -8,7 +8,7 @@ import (
 	"net/netip"
 	"strconv"
 
-	"github.com/daeuniverse/outbound/protocol"
+	"github.com/qimaoww/outbound/protocol"
 	"github.com/daeuniverse/quic-go"
 	"github.com/google/uuid"
 )

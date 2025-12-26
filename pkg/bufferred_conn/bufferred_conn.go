@@ -3,7 +3,7 @@ package bufferred_conn
 import (
 	"net"
 
-	"github.com/daeuniverse/outbound/pkg/zeroalloc/bufio"
+	"github.com/qimaoww/outbound/pkg/zeroalloc/bufio"
 )
 
 type BufferedConn struct {

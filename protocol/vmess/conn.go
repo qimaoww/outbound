@@ -12,10 +12,10 @@ import (
 	"strconv"
 	"sync"
 
-	"github.com/daeuniverse/outbound/common"
-	"github.com/daeuniverse/outbound/netproxy"
-	"github.com/daeuniverse/outbound/pkg/fastrand"
-	"github.com/daeuniverse/outbound/pool"
+	"github.com/qimaoww/outbound/common"
+	"github.com/qimaoww/outbound/netproxy"
+	"github.com/qimaoww/outbound/pkg/fastrand"
+	"github.com/qimaoww/outbound/pool"
 )
 
 const (

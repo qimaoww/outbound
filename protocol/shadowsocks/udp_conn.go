@@ -6,10 +6,10 @@ import (
 	"net/netip"
 	"strconv"
 
-	"github.com/daeuniverse/outbound/ciphers"
-	"github.com/daeuniverse/outbound/netproxy"
-	"github.com/daeuniverse/outbound/pool"
-	"github.com/daeuniverse/outbound/protocol"
+	"github.com/qimaoww/outbound/ciphers"
+	"github.com/qimaoww/outbound/netproxy"
+	"github.com/qimaoww/outbound/pool"
+	"github.com/qimaoww/outbound/protocol"
 	disk_bloom "github.com/mzz2017/disk-bloom"
 )
 
@@ -91,6 +91,7 @@ func (c *UdpConn) WriteTo(b []byte, addr string) (int, error) {
 	toWrite, err := EncryptUDPFromPool(&Key{
 		CipherConf: c.cipherConf,
 		MasterKey:  c.masterKey,
+		Method:     c.metadata.Cipher,
 	}, chunk, salt, ciphers.ShadowsocksReusedInfo)
 	pool.Put(salt)
 	if err != nil {
@@ -114,6 +115,7 @@ func (c *UdpConn) ReadFrom(b []byte) (n int, addr netip.AddrPort, err error) {
 	n, err = DecryptUDP(b, &Key{
 		CipherConf: c.cipherConf,
 		MasterKey:  c.masterKey,
+		Method:     c.metadata.Cipher,
 	}, enc[:n], ciphers.ShadowsocksReusedInfo)
 	if err != nil {
 		return 0, netip.AddrPort{}, err

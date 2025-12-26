@@ -6,7 +6,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/daeuniverse/outbound/protocol/tuic/congestion/common"
+	"github.com/qimaoww/outbound/protocol/tuic/congestion/common"
 
 	"github.com/daeuniverse/quic-go/congestion"
 )

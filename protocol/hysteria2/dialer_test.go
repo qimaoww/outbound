@@ -9,13 +9,15 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/daeuniverse/outbound/netproxy"
-	"github.com/daeuniverse/outbound/protocol"
-	"github.com/daeuniverse/outbound/protocol/direct"
+	"github.com/qimaoww/outbound/internal/testutil"
+	"github.com/qimaoww/outbound/netproxy"
+	"github.com/qimaoww/outbound/protocol"
+	"github.com/qimaoww/outbound/protocol/direct"
 	"golang.org/x/net/context"
 )
 
 func TestTCP(t *testing.T) {
+	testutil.RequireE2E(t)
 	d, err := NewDialer(direct.SymmetricDirect, protocol.Header{
 		ProxyAddress: "localhost:8443",
 		SNI:          "",
@@ -52,6 +54,7 @@ func TestTCP(t *testing.T) {
 }
 
 func TestUDP(t *testing.T) {
+	testutil.RequireE2E(t)
 	d, err := NewDialer(direct.SymmetricDirect, protocol.Header{
 		ProxyAddress: "localhost:8443",
 		SNI:          "",

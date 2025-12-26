@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/daeuniverse/outbound/common"
+	"github.com/qimaoww/outbound/common"
 )
 
 func Password2Key(password string) (id []byte, err error) {
