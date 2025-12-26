@@ -51,7 +51,7 @@ func GetSaltGenerator(masterKey []byte, saltLen int) (sg SaltGenerator, err erro
 				return nil, err
 			}
 		case RandomSaltGeneratorType:
-			sg, err = NewRandomSaltGenerator(DefaultBucketSize, true)
+			sg, err = NewRandomSaltGenerator(saltLen, true)
 			if err != nil {
 				return nil, err
 			}

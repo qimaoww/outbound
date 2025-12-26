@@ -216,10 +216,10 @@ func (c *TCPConn) initRead2022() error {
 	if _, err := io.ReadFull(c.Conn, salt); err != nil {
 		return err
 	}
-	if len(c.requestSalt) != len(salt) {
+	if len(c.requestSalt) == 0 {
 		c.requestSalt = make([]byte, len(salt))
+		copy(c.requestSalt, salt)
 	}
-	copy(c.requestSalt, salt)
 	subKey := pool.Get(c.cipherConf.KeyLen)
 	if err := deriveSessionSubKey(subKey, c.metadata.Cipher, c.masterKey, salt, ciphers.ShadowsocksReusedInfo); err != nil {
 		pool.Put(subKey)
