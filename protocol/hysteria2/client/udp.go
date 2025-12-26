@@ -9,7 +9,7 @@ import (
 
 	rand "github.com/qimaoww/outbound/pkg/fastrand"
 
-	"github.com/daeuniverse/quic-go"
+	"github.com/qimaoww/quic-go"
 
 	"github.com/qimaoww/outbound/netproxy"
 	coreErrs "github.com/qimaoww/outbound/protocol/hysteria2/errors"

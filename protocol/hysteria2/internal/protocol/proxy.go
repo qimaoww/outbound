@@ -8,7 +8,7 @@ import (
 
 	"github.com/qimaoww/outbound/protocol/hysteria2/errors"
 
-	"github.com/daeuniverse/quic-go/quicvarint"
+	"github.com/qimaoww/quic-go/quicvarint"
 )
 
 const (

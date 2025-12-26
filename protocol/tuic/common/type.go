@@ -7,7 +7,7 @@ import (
 
 	"github.com/qimaoww/outbound/netproxy"
 	"github.com/qimaoww/outbound/protocol"
-	"github.com/daeuniverse/quic-go"
+	"github.com/qimaoww/quic-go"
 )
 
 var (

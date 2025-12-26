@@ -16,7 +16,7 @@ import (
 	"github.com/qimaoww/outbound/protocol/trojanc"
 	"github.com/qimaoww/outbound/protocol/tuic"
 	"github.com/qimaoww/outbound/protocol/tuic/common"
-	"github.com/daeuniverse/quic-go"
+	"github.com/qimaoww/quic-go"
 )
 
 var (

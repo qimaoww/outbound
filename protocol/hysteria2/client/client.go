@@ -16,8 +16,8 @@ import (
 	"github.com/qimaoww/outbound/protocol/hysteria2/internal/utils"
 	"github.com/qimaoww/outbound/protocol/tuic/congestion"
 
-	"github.com/daeuniverse/quic-go"
-	"github.com/daeuniverse/quic-go/http3"
+	"github.com/qimaoww/quic-go"
+	"github.com/qimaoww/quic-go/http3"
 )
 
 const (

@@ -9,7 +9,7 @@ import (
 	"github.com/qimaoww/outbound/netproxy"
 	"github.com/qimaoww/outbound/pool"
 	"github.com/qimaoww/outbound/protocol/trojanc"
-	"github.com/daeuniverse/quic-go"
+	"github.com/qimaoww/quic-go"
 )
 
 type Conn struct {

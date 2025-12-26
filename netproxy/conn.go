@@ -7,7 +7,7 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/daeuniverse/quic-go"
+	"github.com/qimaoww/quic-go"
 )
 
 var UnsupportedTunnelTypeError = net.UnknownNetworkError("unsupported tunnel type")

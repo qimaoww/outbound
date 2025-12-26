@@ -3,7 +3,7 @@ package congestion
 import (
 	"github.com/qimaoww/outbound/protocol/tuic/congestion/bbr"
 	"github.com/qimaoww/outbound/protocol/tuic/congestion/brutal"
-	"github.com/daeuniverse/quic-go"
+	"github.com/qimaoww/quic-go"
 )
 
 func UseBBR(conn quic.Connection) {

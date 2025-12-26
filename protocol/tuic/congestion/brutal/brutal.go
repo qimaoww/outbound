@@ -8,7 +8,7 @@ import (
 
 	"github.com/qimaoww/outbound/protocol/tuic/congestion/common"
 
-	"github.com/daeuniverse/quic-go/congestion"
+	"github.com/qimaoww/quic-go/congestion"
 )
 
 const (

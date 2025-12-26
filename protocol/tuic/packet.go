@@ -14,7 +14,7 @@ import (
 	"github.com/qimaoww/outbound/pool"
 	"github.com/qimaoww/outbound/protocol"
 	"github.com/qimaoww/outbound/protocol/tuic/common"
-	"github.com/daeuniverse/quic-go"
+	"github.com/qimaoww/quic-go"
 )
 
 type Packets struct {

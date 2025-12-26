@@ -4,7 +4,7 @@ import (
 	"math"
 	"time"
 
-	"github.com/daeuniverse/quic-go/congestion"
+	"github.com/qimaoww/quic-go/congestion"
 )
 
 const (

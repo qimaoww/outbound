@@ -6,7 +6,7 @@ import (
 	"time"
 
 	"github.com/qimaoww/outbound/netproxy"
-	"github.com/daeuniverse/quic-go"
+	"github.com/qimaoww/quic-go"
 )
 
 type safeStreamConn struct {

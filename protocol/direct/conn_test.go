@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/daeuniverse/quic-go"
+	"github.com/qimaoww/quic-go"
 	"github.com/qimaoww/outbound/netproxy"
 	"github.com/qimaoww/outbound/protocol/juicity"
 	"github.com/stretchr/testify/require"

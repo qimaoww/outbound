@@ -7,7 +7,7 @@ import (
 
 	rand "github.com/qimaoww/outbound/pkg/fastrand"
 	"github.com/qimaoww/outbound/protocol/tuic/congestion/common"
-	"github.com/daeuniverse/quic-go/congestion"
+	"github.com/qimaoww/quic-go/congestion"
 )
 
 // BbrSender implements BBR congestion control algorithm.  BBR aims to estimate

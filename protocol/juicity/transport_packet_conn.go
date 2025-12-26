@@ -11,7 +11,7 @@ import (
 	"github.com/qimaoww/outbound/pkg/fastrand"
 	"github.com/qimaoww/outbound/pool"
 	"github.com/qimaoww/outbound/protocol/shadowsocks"
-	"github.com/daeuniverse/quic-go"
+	"github.com/qimaoww/quic-go"
 )
 
 type TransportPacketConn struct {
